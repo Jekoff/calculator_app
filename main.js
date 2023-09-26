@@ -1,5 +1,5 @@
-const calculator = documentquerySelector('calculator')
-const keys = calculator.querySelector('.calculator_keys')
+let calculator = documentquerySelector(' .calculator')
+let keys = calculator.querySelector('.calculator_keys')
 
 keys.addEventlistener('click', e => {
     if (e.targetmatches('button')) {
@@ -7,8 +7,8 @@ keys.addEventlistener('click', e => {
     }
 })
 
-const key = e.target
-const action = key.dataset.action
+let key = e.target
+let action = key.dataset.action
 
 if (!action) {
     console.log('number key!')
@@ -35,7 +35,7 @@ if (action === 'calculate') {
     console.log('equal key!')
 }
 
-const display = document.querySelector('.calculator__display')
+let display = document.querySelector('.calculator__display')
 
 keys.addEventListener('click', e => {
   if (e.target.matches('button')) {
@@ -73,3 +73,38 @@ if (!action) {
   ) {
     key.classList.add('is-depressed')
   }
+
+  keys.addEventListener ('click', e => {
+    if (e.target.matches('button')) {
+      const key = e.target
+      // ...
+      
+      // Remove .is-depressed class from all keys
+      Array.from(key.parentNode.children)
+        .forEach(k => k.classList.remove('is-depressed'))
+    }
+  })
+
+  const calculator = document.querySelector('.calculator')
+// ...
+
+keys.addEventListener('click', e => {
+  if (e.target.matches('button')) {
+    // ...
+    
+    if (
+      action === 'add' ||
+      action === 'subtract' ||
+      action === 'multiply' ||
+      action === 'divide'
+    ) {
+      key.classList.add('is-depressed')
+      // Add custom attribute
+      calculator.dataset.previousKeyType = 'operator'
+    }
+  }
+})
+
+
+      
+   
