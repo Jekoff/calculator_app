@@ -132,7 +132,7 @@ if (
 }   
    
 if (action === 'calculator') {
-  const firstValue = calculator.dataser.firstValue
+  const firstValue = calculator.dataset.firstValue
   const operator = calculator.dataset.operator
   const secondValue = displayedNum
 
