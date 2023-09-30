@@ -154,3 +154,6 @@ const calculate = (n1, operator, n2) => {
 
   return result
 }
+ const calculator = (n1, operator, n2) => {
+  let result = ''
+ }
